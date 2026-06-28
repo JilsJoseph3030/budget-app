@@ -1,0 +1,167 @@
+.card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-title {
+  font-weight: 800;
+  font-size: 1.125rem;
+  color: #0f172a;
+}
+
+.chip {
+  border-radius: 9999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.chip-indigo {
+  background: rgba(99, 102, 241, 0.12);
+  color: #4f46e5;
+}
+
+.chip-slate {
+  background: rgba(100, 116, 139, 0.12);
+  color: #334155;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.7rem 0.85rem;
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.input:focus {
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+
+.btn {
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  font-weight: 800;
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5 0%, #a855f7 100%);
+  color: white;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-disabled {
+  background: rgba(148, 163, 184, 0.35);
+  color: rgba(15, 23, 42, 0.6);
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  font-weight: 800;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  border: 1px solid transparent;
+}
+
+.badge-emerald {
+  background: rgba(16, 185, 129, 0.10);
+  color: #0f766e;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.badge-rose {
+  background: rgba(244, 63, 94, 0.10);
+  color: #e11d48;
+  border-color: rgba(244, 63, 94, 0.25);
+}
+
+.stat {
+  border-radius: 16px;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #64748b;
+}
+
+.stat-value {
+  margin-top: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.btn-ghost {
+  width: auto;
+  padding: 0.6rem 0.7rem;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  color: #0f172a;
+}
+
+.btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.07);
+}
+
+.nav-wrap {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.98) 0%, rgba(168, 85, 247, 0.98) 100%);
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-weight: 900;
+  color: white;
+}
+
