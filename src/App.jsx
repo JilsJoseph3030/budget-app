@@ -1,43 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import BudgetForm from "./components/BudgetForm";
-import ExpenseList from "./components/ExpenseList";
 import Summary from "./components/Summary";
+import ExpenseList from "./components/ExpenseList";
 
-function App() {
-  const [transactions, setTransactions] = useState(() => {
-    const saved = localStorage.getItem("transactions");
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("transactions", JSON.stringify(transactions));
-  }, [transactions]);
+export default function App() {
+  const [transactions, setTransactions] = useState([]);
 
   return (
-    <div className="min-h-screen">
-      <Navbar />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 text-white font-inter">
+      <div className="container mx-auto max-w-4xl p-6 space-y-8">
+        <Navbar />
+        <h1 className="text-4xl font-bold text-center">Budget Tracker</h1>
+        <p className="text-center text-gray-200">
+          Track income and expenses. Everything is stored locally in your browser.
+        </p>
 
-      <main className="container mx-auto px-4 py-6 max-w-2xl">
-        <div className="mb-5">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Budget Tracker
-          </h2>
-          <p className="mt-1 text-slate-600">
-            Track income and expenses. Everything is stored locally in your browser.
-          </p>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-1">
-          <BudgetForm setTransactions={setTransactions} />
+        <div className="grid md:grid-cols-2 gap-6">
           <Summary transactions={transactions} />
-          <ExpenseList transactions={transactions} setTransactions={setTransactions} />
+          <BudgetForm setTransactions={setTransactions} />
         </div>
-      </main>
 
+        <ExpenseList transactions={transactions} setTransactions={setTransactions} />
+      </div>
     </div>
   );
 }
-
-
-export default App;

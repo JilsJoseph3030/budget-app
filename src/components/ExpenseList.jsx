@@ -1,73 +1,33 @@
-const currency = new Intl.NumberFormat("en-IN", {
-  style: "currency",
-  currency: "INR",
-  maximumFractionDigits: 2,
-});
-
 export default function ExpenseList({ transactions, setTransactions }) {
   const handleDelete = (id) => {
     setTransactions((prev) => prev.filter((t) => t.id !== id));
   };
 
-  const safeAmount = (t) => (Number.isFinite(Number(t?.amount)) ? Number(t.amount) : 0);
-
   return (
-    <section className="card">
-      <div className="card-header">
-        <h2 className="card-title">Transactions</h2>
-        <div className="chip chip-slate">{transactions.length} items</div>
-      </div>
-
+    <div className="bg-white/20 backdrop-blur-md shadow-lg rounded-lg p-6 max-w-2xl mx-auto">
+      <h2 className="text-xl font-semibold mb-4">Transactions</h2>
       {transactions.length === 0 ? (
-        <p className="mt-3 text-slate-500">No transactions yet. Add one above.</p>
+        <p className="text-gray-200">No transactions yet. Add one above.</p>
       ) : (
-        <ul className="mt-3 divide-y divide-slate-200/60">
-          {transactions
-            .slice()
-            .reverse()
-            .map((t) => {
-              const isIncome = t.type === "income";
-              const amount = safeAmount(t);
-
-              return (
-                <li
-                  key={t.id}
-                  className="py-3 flex items-center justify-between gap-3"
-                >
-                  <div className="min-w-0">
-                    <div className="font-semibold text-slate-800 truncate">{t.text}</div>
-                    <div className="mt-1">
-                      <span className={`badge ${isIncome ? "badge-emerald" : "badge-rose"}`}>
-                        {isIncome ? "Income" : "Expense"}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <div
-                      className={`font-bold tabular-nums ${
-                        isIncome ? "text-emerald-700" : "text-rose-700"
-                      }`}
-                    >
-                      {isIncome ? "+" : "-"}
-                      {currency.format(amount)}
-                    </div>
-
-                    <button
-                      onClick={() => handleDelete(t.id)}
-                      className="btn btn-ghost"
-                      aria-label={`Delete ${t.text}`}
-                      type="button"
-                    >
-                      <span className="text-lg leading-none">✕</span>
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
+        <ul className="space-y-2">
+          {transactions.map((t) => (
+            <li
+              key={t.id}
+              className="flex justify-between items-center bg-white/10 p-3 rounded-lg"
+            >
+              <span>
+                {t.type === "income" ? "💰" : "💸"} {t.text} - ₹{t.amount}
+              </span>
+              <button
+                onClick={() => handleDelete(t.id)}
+                className="bg-red-500 hover:bg-red-600 transition-transform hover:scale-105 text-white px-3 py-1 rounded-lg shadow-md"
+              >
+                Delete
+              </button>
+            </li>
+          ))}
         </ul>
       )}
-    </section>
+    </div>
   );
 }
-

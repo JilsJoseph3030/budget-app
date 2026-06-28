@@ -11,7 +11,8 @@ export default function BudgetForm({ setTransactions }) {
     return n;
   }, [amount]);
 
-  const canSubmit = text.trim().length > 0 && parsedAmount !== null && parsedAmount >= 0;
+  const canSubmit =
+    text.trim().length > 0 && parsedAmount !== null && parsedAmount >= 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +31,8 @@ export default function BudgetForm({ setTransactions }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card mb-0">
-      <div className="grid gap-3 sm:grid-cols-1">
+    <form onSubmit={handleSubmit} className="bg-white/20 backdrop-blur-md shadow-lg rounded-lg p-6 max-w-md mx-auto">
+      <div className="grid gap-4">
         <div>
           <label className="form-label">Description</label>
           <input
@@ -39,7 +40,7 @@ export default function BudgetForm({ setTransactions }) {
             placeholder="e.g. Groceries"
             value={text}
             onChange={(e) => setText(e.target.value)}
-            className="input"
+            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
 
@@ -51,7 +52,7 @@ export default function BudgetForm({ setTransactions }) {
             placeholder="0"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="input"
+            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             min={0}
             step={0.01}
           />
@@ -62,7 +63,7 @@ export default function BudgetForm({ setTransactions }) {
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="input"
+            className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="expense">Expense</option>
             <option value="income">Income</option>
@@ -72,7 +73,11 @@ export default function BudgetForm({ setTransactions }) {
         <button
           type="submit"
           disabled={!canSubmit}
-          className={`btn ${canSubmit ? "btn-primary" : "btn-disabled"}`}
+          className={`w-full mt-6 py-3 rounded-lg font-semibold shadow-md transition-transform ${
+            canSubmit
+              ? "bg-indigo-600 text-white hover:bg-indigo-700 hover:scale-105"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
         >
           Add Transaction
         </button>
@@ -80,4 +85,3 @@ export default function BudgetForm({ setTransactions }) {
     </form>
   );
 }
-

@@ -1,13 +1,15 @@
 .card {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(148, 163, 184, 0.35);
-  border-radius: 18px;
+  border-radius: 22px;
   padding: 1.25rem;
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
+  box-shadow:
+    0 18px 50px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
+
 
 .card-header {
   display: flex;
@@ -50,40 +52,60 @@
 
 .input {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.45);
-  background: rgba(255, 255, 255, 0.85);
-  padding: 0.7rem 0.85rem;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0.78rem 0.9rem;
   outline: none;
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.04s ease;
 }
+
 
 .input:focus {
-  border-color: rgba(99, 102, 241, 0.8);
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+  border-color: rgba(99, 102, 241, 0.9);
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.18),
+    0 10px 30px rgba(79, 70, 229, 0.12);
 }
 
+.input:focus-visible {
+  outline: none;
+}
+
+
 .btn {
-  border-radius: 14px;
-  padding: 0.75rem 1rem;
-  font-weight: 800;
+  border-radius: 16px;
+  padding: 0.82rem 1rem;
+  font-weight: 900;
+  min-height: 46px;
   width: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  transition: transform 0.08s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  transition: transform 0.08s ease, box-shadow 0.15s ease, opacity 0.15s ease, filter 0.15s ease;
 }
+
 
 .btn-primary {
   background: linear-gradient(135deg, #4f46e5 0%, #a855f7 100%);
   color: white;
-  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 14px 30px rgba(79, 70, 229, 0.26);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.02);
 }
 
 .btn-primary:active {
   transform: translateY(1px);
 }
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.22), 0 14px 30px rgba(79, 70, 229, 0.26);
+}
+
 
 .btn-disabled {
   background: rgba(148, 163, 184, 0.35);
@@ -133,15 +155,23 @@
 
 .btn-ghost {
   width: auto;
-  padding: 0.6rem 0.7rem;
+  padding: 0.62rem 0.72rem;
+  min-height: 40px;
   background: rgba(15, 23, 42, 0.04);
   border: 1px solid rgba(148, 163, 184, 0.35);
   color: #0f172a;
+  border-radius: 14px;
 }
 
 .btn-ghost:hover {
   background: rgba(15, 23, 42, 0.07);
 }
+
+.btn-ghost:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.18);
+}
+
 
 .nav-wrap {
   background: linear-gradient(135deg, rgba(79, 70, 229, 0.98) 0%, rgba(168, 85, 247, 0.98) 100%);
